@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>My Profile</title>
+<link rel="stylesheet" href="C:\Users\ryu31\OneDrive\Desktop\REVIEW 2 GUVI\style.css">
+<script src="C:\Users\ryu31\OneDrive\Desktop\REVIEW 2 GUVI\scrips.js"></script>
+<style>
+.cus-active {
+	background-color: #e6eefa !important;
+	width: 100%;
+}
+
+.list-btn {
+	font-size: 20px !important;
+}
+
+.list-btn:hover {
+	color: #2874f0 !important;
+}
+</style>
+</head>
+<body>
+	<!-- Navbar -->
+	<div class="navbar">
+		<!-- Add navbar content here -->
+	</div>
+
+	<div class="container-fluid px-3 py-5">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card">
+					<div class="row mt-2 mb-2">
+						<div class="col-md-4">
+							<div class="container text-center">
+								<img src="Images/profile.png" style="max-width: 60px;" class="img-fluid" alt="Profile">
+							</div>
+						</div>
+						<div class="col-md-8">
+							Hello, <br>
+							<h5>User Name</h5>
+						</div>
+					</div>
+				</div>
+
+				<div class="card mt-3">
+					<div class="list-group">
+						<button type="button" id="profile-btn" class="list-group-item list-group-item-action cus-active list-btn" aria-current="true">Profile Information</button>
+						<button type="button" id="wishlist-btn" class="list-group-item list-group-item-action list-btn">My Wishlist</button>
+						<button type="button" id="order-btn" class="list-group-item list-group-item-action list-btn">My Orders</button>
+						<button type="button" id="logout-btn" class="list-group-item list-group-item-action list-btn" onclick="window.open('logout.html', '_self')">Logout</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="card">
+					<div id="profile">
+						<!-- Alert message placeholder -->
+						<div class="alert alert-message">
+							<!-- Add alert messages dynamically here -->
+						</div>
+						<div id="personal-info">
+							<!-- Personal Information content goes here -->
+						</div>
+					</div>
+					<div id="wishlist" style="display: none;">
+						<!-- Wishlist content goes here -->
+					</div>
+					<div id="order" style="display: none;">
+						<!-- Order content goes here -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('profile-btn').addEventListener('click', function() {
+				document.getElementById('profile').style.display = 'block';
+				document.getElementById('wishlist').style.display = 'none';
+				document.getElementById('order').style.display = 'none';
+				this.classList.add('cus-active');
+				document.getElementById('wishlist-btn').classList.remove('cus-active');
+				document.getElementById('order-btn').classList.remove('cus-active');
+			});
+
+			document.getElementById('wishlist-btn').addEventListener('click', function() {
+				document.getElementById('wishlist').style.display = 'block';
+				document.getElementById('profile').style.display = 'none';
+				document.getElementById('order').style.display = 'none';
+				this.classList.add('cus-active');
+				document.getElementById('profile-btn').classList.remove('cus-active');
+				document.getElementById('order-btn').classList.remove('cus-active');
+			});
+
+			document.getElementById('order-btn').addEventListener('click', function() {
+				document.getElementById('order').style.display = 'block';
+				document.getElementById('profile').style.display = 'none';
+				document.getElementById('wishlist').style.display = 'none';
+				this.classList.add('cus-active');
+				document.getElementById('profile-btn').classList.remove('cus-active');
+				document.getElementById('wishlist-btn').classList.remove('cus-active');
+			});
+		});
+	</script>
+</body>
+</html>
